@@ -732,9 +732,9 @@ PlayerSettings:
     UNet: 1
   facebookSdkVersion: 7.9.4
   apiCompatibilityLevel: 2
-  cloudProjectId: 4595963a-5183-481f-870e-7c25f495321e
-  projectName: ARPacman
-  organizationId: n1xk1
+  cloudProjectId: 95432000-47b7-408f-a3d7-d0acf0f11737
+  projectName: HauntedCities
+  organizationId: shunt
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0
