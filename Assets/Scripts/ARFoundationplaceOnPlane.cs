@@ -27,7 +27,10 @@ public class ARFoundationplaceOnPlane : MonoBehaviour
     /// <summary>
     /// The object instantiated as a result of a successful raycast intersection with a plane.
     /// </summary>
-    public GameObject spawnedObject { get; private set; }
+    //public GameObject spawnedObject { get; private set; }
+    public GameObject spawnedObject;
+    public bool debug;
+
 
     ARSessionOrigin m_SessionOrigin;
 
@@ -35,7 +38,21 @@ public class ARFoundationplaceOnPlane : MonoBehaviour
 
     void Awake()
     {
+        
         m_SessionOrigin = GetComponent<ARSessionOrigin>();
+    }
+
+    private void Start()
+    {
+        if (!debug)
+        {
+            spawnedObject.SetActive(false);
+        }
+        else
+        {
+            print("start");
+            NewEventManager.TriggerEvent("start");
+        }
     }
 
     void Update()
@@ -55,6 +72,9 @@ public class ARFoundationplaceOnPlane : MonoBehaviour
                 else
                 {
                     spawnedObject.transform.position = hitPose.position;
+                    spawnedObject.SetActive(true);
+                    GetComponent<ARPlaneManager>().enabled = false;
+                    NewEventManager.TriggerEvent("start");
                 }
 
                 allowPlace = false;

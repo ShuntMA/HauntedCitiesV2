@@ -44,9 +44,27 @@ namespace AiGame
 
         private void Start()
         {
+            //Time.timeScale = 0;
+            //gameObject.transform.parent.gameObject.SetActive(false);
+        }
+
+        public void OnEnable()
+        {
+            NewEventManager.StartListening("start", StartProc);
+            print("start listen");
+        }
+
+        public void OnDisable()
+        {
+            NewEventManager.StopListening("start", StartProc);
+        }
+
+        public void StartProc()
+        {
+            print("startProc");
+            //Time.time = 1;
             waypoints = new GameObject[9];
             StartCoroutine("setup");
-            
         }
 
         /**
