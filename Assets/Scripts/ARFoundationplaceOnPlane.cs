@@ -73,7 +73,8 @@ public class ARFoundationplaceOnPlane : MonoBehaviour
                 {
                     spawnedObject.transform.position = hitPose.position;
                     spawnedObject.SetActive(true);
-                    GetComponent<ARPlaneManager>().enabled = false;
+                    GetComponent<ARPlaneManager>().enabled = false;   
+                    GetComponent<ARPointCloudManager>().enabled = false;
                     NewEventManager.TriggerEvent("start");
                 }
 

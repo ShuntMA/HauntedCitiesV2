@@ -1,0 +1,52 @@
+Maehehm Media, Inc.
+
+http://maehem.com
+
+3D Model Library
+
+Part #:  	HITECH-NURNIE-001
+
+Title:  	Hi Tech. - Nurnie* - 001
+
+Description:  	A transport pod or platform
+
+Keywords:	Transport pod platform podium circular rails nurnie hitech
+
+Source:		Caligari trueSpace 5
+
+File Formats:	SCN, COB, 3DS
+
+Scale:		Not to scale
+
+Price:		$5  
+
+Files:		hitech-nurnie-001.scn
+			Caligari trueSpace5 scene file. Contains
+			all objects and some sample lighting and
+			cameras.
+
+		maehem-hitech-nurnie-001.obl (directory)
+			Caligari Object Library.  Place this directory
+			in your \trueSpace5\Library directory.
+			Use the Object Library feature within the 
+			trueSpace5 program to access the object(s).
+
+		textures
+			Required textures for some object(s).
+			Place in your \trueSpace5\Textures
+			directory.
+
+		3ds
+			3DS versions of the objects.  May not
+			support the applied textures, bump or
+			color information.  Use at your own risk.
+			These files are supplied for the convenience
+			of 3D Studio users.
+
+		maehem-hitech-nurnie-001.jpg
+			Sample image of included object(s).
+
+
+* Nurnie:  Gerneral term used for interesting looking props
+and objects that look good in a scene but may have no apparent
+function.

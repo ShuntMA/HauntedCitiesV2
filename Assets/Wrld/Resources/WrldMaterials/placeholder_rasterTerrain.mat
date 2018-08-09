@@ -4,7 +4,7 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: placeholder_rasterTerrain
   m_Shader: {fileID: 4800000, guid: f8da22a08cb7790489f703fa8bcae5b8, type: 3}

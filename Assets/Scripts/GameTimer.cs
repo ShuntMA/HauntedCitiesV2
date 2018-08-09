@@ -10,6 +10,7 @@ public class GameTimer : MonoBehaviour {
     public GameObject endGame;
     public Text gameOverText;
     public Text gameOverSeconds;
+    bool countDown;
 
 	// Use this for initialization
 	void Start () {
@@ -20,20 +21,31 @@ public class GameTimer : MonoBehaviour {
     public void OnEnable()
     {
         NewEventManager.StartListening("win", youWin);
+        NewEventManager.StartListening("start", StartProc);
+
     }
 
     public void OnDisable()
     {
         NewEventManager.StopListening("win", youWin);
+        NewEventManager.StopListening("start", StartProc);
+    }
+
+    public void StartProc()
+    {
+        countDown = true;
     }
 
     // Update is called once per frame
     void Update () {
-        secondsLeft -= Time.deltaTime;
-        gameTimer.text = secondsLeft.ToString("F0");
-
+        if (countDown)
+        {
+            secondsLeft -= Time.deltaTime;
+            gameTimer.text = secondsLeft.ToString("F0");
+        }
 		if(secondsLeft<=0)
         {
+            countDown = false;
             endGame.SetActive(true);
             gameOverText.text = "You failed to get Eric to the afterlife in time";
             gameOverSeconds.text = "";

@@ -186,22 +186,28 @@ namespace AiGame
                 {
                     thingToSpawn = portalModel;
                 }
-                else if(intArray[3] == i || intArray[4] == i|| intArray[5] == i)
+                else if(intArray[3] == i || intArray[4] == i)
                 {
                     thingToSpawn = speedUpModel;
                 }
-                else
+                else if(intArray[5]==i||intArray[6]==i)
                 {
                     thingToSpawn = randomModel;
                 }
-                spawnedThing = Instantiate(thingToSpawn, waypoints[i].transform.position, Quaternion.Euler(90, 0, 0));
-                spawnedThing.transform.parent = transform;
-                if(i==intArray[0])
+                else
                 {
-                    spawnedThing.tag = "Finish";
+                    thingToSpawn = null;
+                }
+                if (thingToSpawn != null)
+                {
+                    spawnedThing = Instantiate(thingToSpawn, waypoints[i].transform.position, Quaternion.Euler(90, 0, 0));
+                    spawnedThing.transform.parent = transform;
+                    if (i == intArray[0])
+                    {
+                        spawnedThing.tag = "Finish";
+                    }
                 }
             }
-         
             GameObject playerThing = GameObject.FindGameObjectWithTag("Player");
             playerThing.transform.parent = transform;
             playerThing.transform.position = waypoints[1].transform.position + new Vector3(0, 0.018f, 0) ;

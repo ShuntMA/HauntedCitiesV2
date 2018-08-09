@@ -94,7 +94,7 @@ namespace AiGame
             waypoints[11].GetComponent<Waypoint>().neighbors.Add(waypoints[10].GetComponent<Waypoint>());
             waypoints[11].GetComponent<Waypoint>().neighbors.Add(waypoints[2].GetComponent<Waypoint>());
 
-            ghost.transform.localPosition = waypoints[1].transform.localPosition;
+            ghost.transform.localPosition = waypoints[5].transform.localPosition;
 
            
 
@@ -153,19 +153,27 @@ namespace AiGame
                 {
                     thingToSpawn = portalModel;
                 }
-                else if(intArray[3] == i || intArray[4] == i|| intArray[5] == i)
+                else if(intArray[3] == i || intArray[4] == i)
                 {
                     thingToSpawn = speedUpModel;
                 }
-                else
+                else if (intArray[6] == i || intArray[7] == i || intArray[5] == i)
                 {
                     thingToSpawn = randomModel;
                 }
-                spawnedThing = Instantiate(thingToSpawn, waypoints[i].transform.position, Quaternion.Euler(90, 0, 0));
-                spawnedThing.transform.parent = transform;
-                if(i==intArray[0])
+                else
                 {
-                    spawnedThing.tag = "Finish";
+                    thingToSpawn = null;
+                }
+                if (thingToSpawn != null)
+                {
+                    spawnedThing = Instantiate(thingToSpawn, waypoints[i].transform.position, Quaternion.Euler(90, 0, 0));
+                    spawnedThing.transform.parent = transform;
+
+                    if (i == intArray[0])
+                    {
+                        spawnedThing.tag = "Finish";
+                    }
                 }
             }
          

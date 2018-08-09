@@ -10,17 +10,20 @@ public class portalScript : MonoBehaviour
     static int numActive;
 
     MeshRenderer rend;
+    GameObject child;
     BoxCollider coll;
 
     // Use this for initialization
     void Start()
     {
         rend= gameObject.GetComponent<MeshRenderer>();
-        coll= gameObject.GetComponent<BoxCollider>();
+        //child = transform.GetChild(0).gameObject;
+        coll = gameObject.GetComponent<BoxCollider>();
         player = GameObject.FindGameObjectWithTag("Player");
         
         if (gameObject.tag!="Finish")
         {
+            //child.SetActive(false);
             rend.enabled = false;
             coll.enabled = false;
             //StartCoroutine("PortalHide");
@@ -30,13 +33,28 @@ public class portalScript : MonoBehaviour
     IEnumerator PortalHide()
     {
             yield return new WaitForSeconds(Random.Range(15, 25));
-            rend.enabled = false;
-            coll.enabled = false;       
+        //child.SetActive(false);
+        rend.enabled = false;
+        coll.enabled = false;
+        print("portal hide");
+        //StartCoroutine("showPortalNew");
+    }
+
+    IEnumerator showPortalNew()
+    {
+        yield return new WaitForSeconds(Random.Range(15, 25));
+        StopCoroutine("PortalHide");
+        //child.SetActive(true);
+        rend.enabled = true;
+        coll.enabled = true;
+        //StartCoroutine("PortalHide");
     }
 
     public void showPortal()
     {
+        print("portal Show");
         StopCoroutine("PortalHide");
+        //child.SetActive(true);
         rend.enabled = true;
         coll.enabled = true;
         StartCoroutine("PortalHide");
