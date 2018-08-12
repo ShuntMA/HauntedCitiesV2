@@ -4,10 +4,10 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: placeholder_interior
-  m_Shader: {fileID: 4800000, guid: 7d98cc3b68912e241be5cf653947fa75, type: 3}
+  m_Shader: {fileID: 4800000, guid: f8da22a08cb7790489f703fa8bcae5b8, type: 3}
   m_ShaderKeywords: _GLOSSYREFLECTIONS_OFF _SPECULARHIGHLIGHTS_OFF _VERTEXCOLOR
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
