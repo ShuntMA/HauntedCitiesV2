@@ -4,7 +4,7 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: InteriorsStencilMirrorMaterial
   m_Shader: {fileID: 4800000, guid: fc7e95df69f301b4089fecc53d4787d8, type: 3}
