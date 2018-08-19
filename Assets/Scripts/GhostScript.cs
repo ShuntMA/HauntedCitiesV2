@@ -17,6 +17,7 @@ public class GhostScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         wrldMap = transform.parent;
+        posessaudio = GetComponent<AudioSource>();
         //StartCoroutine("checkDistance");
     }
 
@@ -41,6 +42,11 @@ public class GhostScript : MonoBehaviour {
         cameraAttach.transform.localScale = new Vector3(1, 1, 1);
     }
 
+
+    AudioSource posessaudio;
+    public AudioSource throwAudio;
+    public AudioSource dropAudio;
+
     // Update is called once per frame
     void Update()
     {
@@ -50,11 +56,12 @@ public class GhostScript : MonoBehaviour {
            
             if (Vector3.Distance(transform.position, target.position) < 0.1f)
             {
-                
+                posessaudio.Play();     
                 float step = speed * Time.deltaTime;
                 transform.position = Vector3.MoveTowards(transform.position, target.position, step);
                 if (Vector3.Distance(transform.position, target.position) < 0.006f)
                 {
+                    posessaudio.Stop();
                     if (target.tag == "Finish")
                     {
                         transform.parent = target;
@@ -75,6 +82,7 @@ public class GhostScript : MonoBehaviour {
                             }
                         }
                         transform.parent = wrldMap;
+                        throwAudio.Play();
                         StopCoroutine("countDownToDrop");
                         transform.position = locations[Random.Range(0, locations.Length)].position;
                     }
@@ -110,6 +118,7 @@ public class GhostScript : MonoBehaviour {
     IEnumerator countDownToDrop()
     {
         yield return new WaitForSeconds(5);
+        dropAudio.Play();
         transform.parent = wrldMap;
     }
 
@@ -157,6 +166,7 @@ public class GhostScript : MonoBehaviour {
 
     public void drop()
     {
+        dropAudio.Play();
         transform.parent = wrldMap;
         StopCoroutine("countDownToDrop");
     }

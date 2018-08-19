@@ -21,6 +21,7 @@ public class UIScript : MonoBehaviour
         {
             DisAppear();
         }
+        StartCoroutine("hideHelp");
     }
 
     public void PauseGame()
@@ -48,6 +49,7 @@ public class UIScript : MonoBehaviour
     }
 
     static readonly bool Paused;
+    public GameObject helpPanel;
 
     public static bool IsPaused()
     {
@@ -66,6 +68,29 @@ public class UIScript : MonoBehaviour
         UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
     }
     
+    public void help()
+    {
+        if(helpPanel.activeInHierarchy==true)
+        {
+            StopCoroutine("hideHelp");
+            helpPanel.SetActive(false);
+        }
+        else
+        {
+            helpPanel.SetActive(true);
+            if(PausePanel.activeInHierarchy==true)
+            {
+                PausePanel.SetActive(false);
+            }
+        }
+    }
+
+    IEnumerator hideHelp()
+    {
+        yield return new WaitForSeconds(15);
+        helpPanel.SetActive(false);
+    }
+
         public void Quit()
         {
 #if UNITY_EDITOR
